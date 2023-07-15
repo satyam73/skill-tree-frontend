@@ -5,6 +5,7 @@ Setup project with eslint, prettier and pre-commit hook
 ## Type of change
 
 Added
-- Eslint
-- Prettier 
-- Pre-commit hooks
+
+-   Eslint
+-   Prettier
+-   Pre-commit hooks
