@@ -25,6 +25,6 @@ module.exports = {
                 light: "#FEF2F2",
             },
         },
-        plugins: [],
     },
+    plugins: [],
 };
