@@ -1,3 +1,9 @@
+import RequestBoard from "@/components/RequestBoard";
+
 export default function Home() {
-    return <main></main>;
+    return (
+        <main>
+            <RequestBoard />
+        </main>
+    );
 }
