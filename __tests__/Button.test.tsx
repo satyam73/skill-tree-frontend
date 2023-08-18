@@ -4,30 +4,37 @@ import Button from "@/components/button/Button"; // Update the path to the Butto
 
 describe("Button Component", () => {
     test("renders button with default type and text", () => {
-        const { getByText } = render(<Button color="success">Click me</Button>);
-        const button = getByText("Click me");
+        const { getByRole } = render(<Button>click me</Button>);
+        const button = getByRole("button", {
+            name: "click me",
+        });
         expect(button).toBeInTheDocument();
+        expect(button).toHaveAttribute("type", "button");
         expect(button).toHaveClass("success");
     });
 
     test("renders button with custom type, color, and text", () => {
-        const { getByText, container } = render(
-            <Button color="error">
-                <strong>Dangerous</strong>
+        const { getByRole } = render(
+            <Button type="submit" color="error">
+                {" "}
+                <span>custom</span>
             </Button>
         );
-        const button = getByText("Dangerous");
+        const button = getByRole("button", {
+            name: "custom",
+        });
         expect(button).toBeInTheDocument();
-        expect(container.querySelector(".error")).toBeInTheDocument(); // Check for the class name
-        expect(container.querySelector("strong")).toBeInTheDocument();
+        expect(button).toHaveAttribute("type", "submit");
+        expect(button).toHaveClass("error");
     });
 
     test("handles onClick event", () => {
-        const onClickMock = jest.fn();
-        const { getByText } = render(<Button onClick={onClickMock}>Click me</Button>);
-        const button = getByText("Click me");
-
+        const handleClick = jest.fn();
+        const { getByRole } = render(<Button onClick={handleClick}>click</Button>);
+        const button = getByRole("button", {
+            name: "click",
+        });
         fireEvent.click(button);
-        expect(onClickMock).toHaveBeenCalledTimes(1);
+        expect(handleClick).toHaveBeenCalledTimes(1);
     });
 });
