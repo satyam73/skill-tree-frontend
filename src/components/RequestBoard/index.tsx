@@ -5,6 +5,7 @@ import SkillLabel from "./MemberVotesDetails/SkillLabel";
 import SearchBox from "./SearchBox";
 import { FILTER_ICON, NEXT_ARROW_ICON, PREVIOUS_ARROW_ICON } from "@/constants/images";
 import { BUTTON_ROUNDNESS, BUTTON_VARIENTS } from "@/constants/button";
+import VotesListModal from "@/components/RequestBoard/VotesListModal";
 import skillData from "../../../mock/usersSkillData.json";
 
 export default function RequestBoard() {
@@ -44,6 +45,8 @@ export default function RequestBoard() {
                     <Icon iconUrl={NEXT_ARROW_ICON} alt="prev" width={8} height={8} />
                 </Button>
             </div>
+
+            <VotesListModal />
         </div>
     );
 }
