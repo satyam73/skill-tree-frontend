@@ -12,14 +12,14 @@ const Drawer = ({ open, onClose, children }: DrawerProps) => {
             <>
                 <div
                     role="overlay"
-                    className={`fixed inset-0 bg-black opacity-20 transition-opacity duration-300 blur ${
+                    className={`fixed inset-0 bg-black-dark opacity-20 transition-opacity duration-300 blur ${
                         open ? "ease-in" : "ease-out"
                     } ${open ? "visible" : "invisible"}`}
                 ></div>
                 <div
                     role="drawer"
                     ref={ref}
-                    className="fixed right-0 top-0 z-40 h-screen p-4 overflow-y-auto bg-white w-96"
+                    className="fixed right-0 top-0 z-40 h-screen p-4 overflow-y-auto bg-white w-1/3"
                     tabIndex={-1}
                 >
                     {children}

@@ -1,13 +1,19 @@
 import { CardProps } from "@/types/Card";
 
 const Card = ({ name, description }: CardProps) => {
-    const seeMoreBtn = description.length > 160 ? <span>...see more</span> : null;
+    const seeMoreBtn =
+        description.length > 160 ? (
+            <span>
+                ... <span className="text-blue cursor-pointer">see more</span>
+            </span>
+        ) : null;
 
     return (
-        <li>
-            <h5>{name}</h5>
-            <p>
-                {description}${seeMoreBtn}
+        <li className="mb-6">
+            <h5 className="text-xl font-medium mb-2">{name}</h5>
+            <p className="text-gray-300">
+                {description}
+                {seeMoreBtn}
             </p>
         </li>
     );
