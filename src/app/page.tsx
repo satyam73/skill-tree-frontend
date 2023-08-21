@@ -1,10 +1,11 @@
 "use client";
 import Drawer from "@/components/Drawer";
 import Button from "@/components/button/Button";
-import Card from "@/components/card/Card";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { IoCheckmarkSharp } from "react-icons/io5";
+import * as drawerData from "../../__mocks__/drawer.json";
+import CardList from "@/components/card/CardList";
 
 export default function Home() {
     const [open, setOpen] = useState(false);
@@ -17,13 +18,13 @@ export default function Home() {
         <main>
             <Button onClick={handleOpen}>Open Drawer</Button>
             <Drawer open={open} onClose={handleOpen}>
-                <h1 className="text-5xl font-semibold mb-4">Oppenheimer ✨</h1>
-                <h3 className="text-2xl font-semibold mb-10">12 Jan 2023</h3>
-                <h3 className="text-2xl font-medium mb-1">Skills: Pinning in Rust</h3>
-                <h6 className="text-xl mb-4 text-gray-700">Endorsers: Vaibhav, Yash, Tejas</h6>
+                <h1 className="text-5xl font-semibold mb-4">{drawerData.title}</h1>
+                <h3 className="text-2xl font-semibold mb-10">{drawerData.date}</h3>
+                <h3 className="text-2xl font-medium mb-1">Skills: {drawerData.skills}</h3>
+                <h6 className="text-xl mb-4 text-gray-700">Endorsers: {drawerData.endorsers.join(", ")}</h6>
                 <span className="rounded-full py-1 px-2 bg-yellow-light font-medium ">
                     {" "}
-                    <span> Atomic</span>
+                    <span>Atomic</span>
                 </span>
                 <div className="flex gap-4 mt-8 mb-6">
                     <Button icon={<IoCheckmarkSharp />}>Approve</Button>
@@ -32,20 +33,7 @@ export default function Home() {
                     </Button>
                 </div>
                 <h3 className="text-2xl font-semibold mb-10">Endorsements</h3>
-                <ul>
-                    <Card
-                        name="Vaibhav"
-                        description="Lorem ipsum dolor sit amet consectetur. Lacus consequat non porttitor faucibus. Mattis nec felis sagittis justo id volutpat. Et ut non semper quam a consectetur Et ut non semper quam a consectetur."
-                    />
-                    <Card
-                        name="Vaibhav"
-                        description="Lorem ipsum dolor sit amet consectetur. Lacus consequat non porttitor faucibus. Mattis nec felis sagittis justo id volutpat. Et ut non semper quam a consectetur Et ut non semper quam a consectetur."
-                    />
-                    <Card
-                        name="Vaibhav"
-                        description="Lorem ipsum dolor sit amet consectetur. Lacus consequat non porttitor faucibus. Mattis nec felis sagittis justo id volutpat. Et ut non semper quam a consectetur Et ut non semper quam a consectetur."
-                    />
-                </ul>
+                <CardList data={drawerData.endorsements} />
             </Drawer>
         </main>
     );

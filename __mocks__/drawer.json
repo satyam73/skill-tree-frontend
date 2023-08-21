@@ -1,0 +1,21 @@
+{
+    "title": "Oppenheimer ✨",
+    "date": "12 Jan 2023",
+    "skills": "Pinning in Rust",
+    "endorsers": ["Vaibhav", "Yash", "Tejas"],
+    "status": "Atomic",
+    "endorsements": [
+        {
+            "name": "Vaibhav",
+            "description": "Lorem ipsum dolor sit amet consectetur. Lacus consequat non porttitor faucibus. Mattis nec felis sagittis justo id volutpat. Et ut non semper quam a consectetur Et ut non semper quam a consectetur."
+        },
+        {
+            "name": "Yash",
+            "description": "Lorem ipsum dolor sit amet consectetur. Lacus consequat non porttitor faucibus. Mattis nec felis sagittis justo id volutpat. Et ut non semper quam a consectetur Et ut non semper quam a consectetur."
+        },
+        {
+            "name": "Tejas",
+            "description": "Lorem ipsum dolor sit amet consectetur. Lacus consequat non porttitor faucibus. Mattis nec felis sagittis justo id volutpat. Et ut non semper quam a consectetur Et ut non semper quam a consectetur."
+        }
+    ]
+}
