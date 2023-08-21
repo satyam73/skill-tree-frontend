@@ -1,10 +1,10 @@
 "use client";
 import Drawer from "@/components/Drawer";
-import Icon from "@/components/Icon";
 import Button from "@/components/button/Button";
 import Card from "@/components/card/Card";
-import { CHECKMARK, CROSS } from "@/constants/images";
 import { useState } from "react";
+import { RxCross2 } from "react-icons/rx";
+import { IoCheckmarkSharp } from "react-icons/io5";
 
 export default function Home() {
     const [open, setOpen] = useState(false);
@@ -26,10 +26,8 @@ export default function Home() {
                     <span> Atomic</span>
                 </span>
                 <div className="flex gap-4 mt-8 mb-6">
-                    <Button icon={<Icon iconUrl={CHECKMARK} width={16} height={16} alt="checkmark icon" />}>
-                        Approve
-                    </Button>
-                    <Button color="error" icon={<Icon iconUrl={CROSS} width={16} height={16} alt="cross icon" />}>
+                    <Button icon={<IoCheckmarkSharp />}>Approve</Button>
+                    <Button color="error" icon={<RxCross2 />}>
                         Reject
                     </Button>
                 </div>
