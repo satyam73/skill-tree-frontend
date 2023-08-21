@@ -13,7 +13,7 @@ const Button = ({ type = "button", children, color = "success", icon, onClick = 
 
     return (
         <button type={type} className={`${defaultStyles} ${btnBg}`} onClick={onClick}>
-            {icon ? icon : null}
+            {icon ? <span role="icon"> {icon} </span> : null}
             <span>{children}</span>
         </button>
     );

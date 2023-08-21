@@ -1,6 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import Card from "@/components/card/Card";
+import { render } from "@testing-library/react";
 import CardList from "@/components/card/CardList";
 import * as data from "../__mocks__/drawer.json";
 

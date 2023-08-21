@@ -1,21 +1,24 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import Button from "@/components/button/Button"; // Update the path to the Button component
+import { IoCheckmarkSharp } from "react-icons/io5";
 
 describe("Button Component", () => {
     test("renders button with default type and text", () => {
-        const { getByRole } = render(<Button>click me</Button>);
+        const { getByRole, queryByRole } = render(<Button>click me</Button>);
         const button = getByRole("button", {
             name: "click me",
         });
+        const icon = queryByRole("icon");
+        expect(icon).not.toBeInTheDocument();
         expect(button).toBeInTheDocument();
         expect(button).toHaveAttribute("type", "button");
-        expect(button).toHaveClass("success");
+        expect(button).toHaveClass("bg-green");
     });
 
-    test("renders button with custom type, color, and text", () => {
+    test("renders button with custom type, color, icon and text", () => {
         const { getByRole } = render(
-            <Button type="submit" color="error">
+            <Button type="submit" color="error" icon={<IoCheckmarkSharp />}>
                 {" "}
                 <span>custom</span>
             </Button>
@@ -23,9 +26,11 @@ describe("Button Component", () => {
         const button = getByRole("button", {
             name: "custom",
         });
+        const icon = getByRole("icon");
+        expect(icon).toBeInTheDocument();
         expect(button).toBeInTheDocument();
         expect(button).toHaveAttribute("type", "submit");
-        expect(button).toHaveClass("error");
+        expect(button).toHaveClass("bg-red-100");
     });
 
     test("handles onClick event", () => {
