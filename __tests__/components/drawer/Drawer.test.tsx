@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Drawer from "@/components/Drawer";
+import Drawer from "@/components/drawer/Drawer";
 
 describe("Drawer", () => {
     test("when open render drawer and overlay", () => {

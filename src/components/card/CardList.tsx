@@ -8,8 +8,8 @@ export type CardListProps = {
 const CardList = ({ data }: CardListProps) => {
     return (
         <ul>
-            {data.map((end: CardProps) => (
-                <Card name={end.name} description={end.description} />
+            {data.map((end) => (
+                <Card name={end.name} description={end.description} key={end.id} />
             ))}
         </ul>
     );

@@ -14,12 +14,14 @@ describe("Card ", () => {
         const nameElement = getByText(cardProps.name);
 
         const descriptionElement = getByText(/Lorem ipsum dolor sit amet consectetur adipisicing elit/i);
-        const seeMoreElement = queryByText(/\.\.\.see more/i);
+        const seeMoreElement = queryByText("see more");
+        const threeDotsElement = queryByText("...");
 
         expect(listElement).toBeInTheDocument();
         expect(nameElement).toBeInTheDocument();
         expect(descriptionElement).toBeInTheDocument();
         expect(seeMoreElement).not.toBeInTheDocument();
+        expect(threeDotsElement).not.toBeInTheDocument();
     });
 
     test("renders card with name and long description", () => {
@@ -35,11 +37,13 @@ describe("Card ", () => {
         const descriptionElement = getByText(
             /lorem, ipsum dolor sit amet consectetur adipisicing elit\. aliquid, quas hic\. animi consequuntur, ullam ad qui, architecto molestias natus, libero soluta explicabo impedit aperiam magnam/i
         );
-        const seeMoreElement = getByText(/\.\.\.see more/i);
+        const seeMoreElement = getByText("see more");
+        const threeDotsElement = getByText("...");
 
         expect(listElement).toBeInTheDocument();
         expect(nameElement).toBeInTheDocument();
         expect(descriptionElement).toBeInTheDocument();
         expect(seeMoreElement).toBeInTheDocument();
+        expect(threeDotsElement).toBeInTheDocument();
     });
 });
