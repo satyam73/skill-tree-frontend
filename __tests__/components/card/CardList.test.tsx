@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import CardList from "@/components/card/CardList";
-import * as data from "../__mocks__/drawer.json";
+import * as data from "../../../__mocks__/drawer.json";
 
 describe("Card List", () => {
     test("renders card list", () => {

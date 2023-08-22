@@ -1,12 +1,12 @@
 "use client";
-import Drawer from "@/components/Drawer";
+import Drawer from "@/components/drawer/Drawer";
 import Button from "@/components/button/Button";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import * as drawerData from "../../__mocks__/drawer.json";
 import CardList from "@/components/card/CardList";
-import Tag from "@/components/Tag";
+import Tag from "@/components/tag/Tag";
 
 export default function Home() {
     const [open, setOpen] = useState(false);
@@ -19,7 +19,7 @@ export default function Home() {
         <main>
             <Button onClick={handleOpen}>Open Drawer</Button>
             <Drawer open={open} onClose={handleOpen}>
-                <h1 className="text-5xl font-semibold mb-4">{drawerData.title}</h1>
+                <h1 className="text-4xl lg:text-5xl font-semibold mb-4">{drawerData.title}</h1>
                 <h3 className="text-2xl font-semibold mb-10">{drawerData.date}</h3>
                 <h3 className="text-2xl font-medium mb-1">Skills: {drawerData.skills}</h3>
                 <h6 className="text-xl mb-4 text-gray-700">Endorsers: {drawerData.endorsers.join(", ")}</h6>

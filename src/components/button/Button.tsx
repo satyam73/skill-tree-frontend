@@ -1,5 +1,12 @@
-import { ButtonProps } from "@/types/Button";
-import React from "react";
+import React, { ReactNode } from "react";
+
+type ButtonProps = {
+    icon?: ReactNode;
+    children: ReactNode;
+    type?: "button" | "submit";
+    color?: "success" | "error";
+    onClick?: () => void;
+};
 
 const Button = ({ type = "button", children, color = "success", icon, onClick = () => {} }: ButtonProps) => {
     const defaultStyles = "py-1 px-4 text-sm rounded-md font-medium flex items-center gap-1";

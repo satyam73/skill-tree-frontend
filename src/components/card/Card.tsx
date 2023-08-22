@@ -1,4 +1,7 @@
-import { CardProps } from "@/types/Card";
+export type CardProps = {
+    name: string;
+    description: string;
+};
 
 const Card = ({ name, description }: CardProps) => {
     const seeMoreBtn =

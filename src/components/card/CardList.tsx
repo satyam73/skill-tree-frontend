@@ -1,6 +1,5 @@
-import { CardProps } from "@/types/Card";
 import React from "react";
-import Card from "./Card";
+import Card, { CardProps } from "./Card";
 
 export type CardListProps = {
     data: CardProps[];

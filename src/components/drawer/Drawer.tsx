@@ -1,8 +1,13 @@
 "use client";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
-import { DrawerProps } from "@/types/Drawer";
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+
+type DrawerProps = {
+    open: boolean;
+    onClose: () => void;
+    children?: ReactNode;
+};
 
 const Drawer = ({ open, onClose, children }: DrawerProps) => {
     const ref = useOutsideClick(onClose);
@@ -19,7 +24,7 @@ const Drawer = ({ open, onClose, children }: DrawerProps) => {
                 <div
                     role="drawer"
                     ref={ref}
-                    className="fixed right-0 top-0 z-40 h-screen p-4 overflow-y-auto bg-white w-1/3"
+                    className="fixed right-0 top-0 z-40 h-screen px-6 pt-20 overflow-y-auto bg-white w-3/4 sm:w-1/2 lg:w-[490px]"
                     tabIndex={-1}
                 >
                     {children}

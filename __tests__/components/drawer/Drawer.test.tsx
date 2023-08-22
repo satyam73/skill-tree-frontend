@@ -20,13 +20,4 @@ describe("Drawer", () => {
         expect(drawer).not.toBeInTheDocument();
         expect(overlay).not.toBeInTheDocument();
     });
-
-    // test("handles onClose event", () => {
-    //     const handleClose = jest.fn();
-    //     const { getByRole } = render(<Drawer open={true} onClose={handleClose} />);
-    //     const drawer = getByRole("drawer");
-
-    //     fireEvent.click(drawer);
-    //     expect(handleClose).toHaveBeenCalledTimes(1);
-    // });
 });
