@@ -1,6 +1,5 @@
+import { TRUNCATION_LENGTH } from "@/constants/comman";
 import { useState } from "react";
-
-const TRUNCATION_LENGTH = 160;
 
 type EndorsementCardProps = {
     name: string;
@@ -14,7 +13,7 @@ const EndorsementCard = ({ name, description }: EndorsementCardProps) => {
         setShowFullDescription((prev) => !prev);
     };
 
-    const seeMoreBtn =
+    const toggleDescButton =
         description.length > TRUNCATION_LENGTH ? (
             <button onClick={toggleDescription}>
                 {showFullDescription ? " " : "..."}
@@ -27,7 +26,7 @@ const EndorsementCard = ({ name, description }: EndorsementCardProps) => {
             <h5 className="text-xl font-medium mb-2">{name}</h5>
             <p className="text-gray-300">
                 {showFullDescription ? description : description.slice(0, TRUNCATION_LENGTH)}
-                {seeMoreBtn}
+                {toggleDescButton}
             </p>
         </li>
     );
