@@ -1,4 +1,4 @@
-import Avatar from "../BoardDetailsRow/Avatar";
+import Avatar from "../Avatar/Avatar";
 
 type VotesTypes = {
     src: string;
