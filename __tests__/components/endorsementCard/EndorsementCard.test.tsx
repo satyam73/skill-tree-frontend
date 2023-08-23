@@ -1,15 +1,15 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import Card from "@/components/card/Card";
+import { render } from "@testing-library/react";
+import EndorsementCard from "@/components/endorsementCard/EndorsementCard";
 
-describe("Card ", () => {
+describe("EndorsementCard", () => {
     const cardProps = {
         name: "suhas",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
     };
 
     test("renders card with name and small description", () => {
-        const { getByText, getByRole, queryByText } = render(<Card {...cardProps} />);
+        const { getByText, getByRole, queryByText } = render(<EndorsementCard {...cardProps} />);
         const listElement = getByRole("listitem");
         const nameElement = getByText(cardProps.name);
 
@@ -31,7 +31,7 @@ describe("Card ", () => {
                 "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quas hic. Animi consequuntur, ullam ad qui, architecto molestias natus, libero soluta explicabo impedit aperiam magnam",
         };
 
-        const { getByText, getByRole } = render(<Card {...cardProps} />);
+        const { getByText, getByRole } = render(<EndorsementCard {...cardProps} />);
         const listElement = getByRole("listitem");
         const nameElement = getByText(cardProps.name);
         const descriptionElement = getByText(
