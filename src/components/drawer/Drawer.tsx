@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 type DrawerProps = {
     open: boolean;
     onClose: () => void;
-    children: ReactNode;
+    children?: ReactNode;
     top?: number; // it should be length of header and values are from tailwind classes
 };
 
