@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Avatar from "../BoardDetailsRow/Avatar";
 
 type VotesTypes = {
     src: string;
@@ -7,11 +7,11 @@ type VotesTypes = {
     description: string;
 };
 
-export default function Votes({ src, name, date, description }: VotesTypes) {
+export default function VotesDescription({ src, name, date, description }: VotesTypes) {
     return (
         <div className="grid grid-cols-[auto_minmax(0,_1fr)] items-start gap-4 p-4 border-b border-gray-400">
             <div>
-                <Image src={src} alt={name} height={40} width={40} />
+                <Avatar name="Manish" src={src} width={40} height={40} />
             </div>
             <div className="text-base">
                 <div>
