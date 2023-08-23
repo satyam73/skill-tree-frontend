@@ -15,7 +15,7 @@ type ButtonStylesProps = {
 };
 
 function getButtonStyle({ roundness, varient, padding }: ButtonStylesProps) {
-    const baseStyles = "px-6 py-2 text-sm font-medium flex items-center justify-center gap-4";
+    const baseStyles = "px-4 lg:px-6 py-2 text-sm font-semibold flex items-center justify-center gap-4";
     const varients = {
         roundness: {
             medium: "rounded-lg",
@@ -27,7 +27,7 @@ function getButtonStyle({ roundness, varient, padding }: ButtonStylesProps) {
             secondary: "bg-black-dark text-white",
             default: "bg-gray-100 text-black-light",
             outline: "bg-transparent text-black-dark border",
-            ghost: "bg-gray-100 lg:bg-transparent text-black-light border-none",
+            text: "bg-gray-100 lg:bg-transparent text-black-light border-none hover:bg-gray-100 hover:text-red-dark transition",
         },
         padding: `${padding}`,
     };
@@ -55,7 +55,7 @@ function getButtonStyle({ roundness, varient, padding }: ButtonStylesProps) {
         } else if (varient === BUTTON_VARIENTS.OUTLINED) {
             defaultVarients.varient = varients.varient.outline;
         } else if (varient === BUTTON_VARIENTS.TEXT) {
-            defaultVarients.varient = varients.varient.ghost;
+            defaultVarients.varient = varients.varient.text;
         } else {
             defaultVarients.varient = varients.varient.default;
         }
