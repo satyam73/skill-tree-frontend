@@ -1,69 +1,66 @@
 import { ReactNode } from "react";
-import { BUTTON_VARIENTS, BUTTON_ROUNDNESS } from "@/constants/button";
+import { BUTTON_VARIANTS, ROUNDNESS_VARIANTS } from "@/constants/request-board";
 
 type ButtonProps = {
-    children?: ReactNode;
+    children: ReactNode;
     roundness?: string;
-    varient?: string;
-    padding?: string;
+    variant?: string;
 };
 
 type ButtonStylesProps = {
     roundness?: string;
-    varient?: string;
-    padding?: string;
+    variant?: string;
 };
 
-function getButtonStyle({ roundness, varient, padding }: ButtonStylesProps) {
+function getButtonStyle({ roundness, variant }: ButtonStylesProps) {
     const baseStyles = "px-4 lg:px-6 py-2 text-sm font-semibold flex items-center justify-center gap-4";
-    const varients = {
+    const variantsStyles = {
         roundness: {
             medium: "rounded-lg",
             pill: "rounded-full",
             sqaure: "rounded-none",
         },
-        varient: {
+        variant: {
             primary: "bg-blue text-white",
             secondary: "bg-black-dark text-white",
             default: "bg-gray-100 text-black-light",
             outline: "bg-transparent text-black-dark border",
             text: "bg-gray-100 lg:bg-transparent text-black-light border-none hover:bg-gray-100 hover:text-red-dark transition",
         },
-        padding: `${padding}`,
     };
 
-    const defaultVarients: { roundness: string; varient: string } = {
-        roundness: varients.roundness.medium,
-        varient: varients.varient.default,
+    const defaultVarients = {
+        roundness: variantsStyles.roundness.medium,
+        variant: variantsStyles.variant.default,
     };
 
     if (roundness) {
-        if (roundness === BUTTON_ROUNDNESS.PILL) {
-            defaultVarients.roundness = varients.roundness.pill;
-        } else if (roundness === BUTTON_ROUNDNESS.SQUARE) {
-            defaultVarients.roundness = varients.roundness.sqaure;
+        if (roundness === ROUNDNESS_VARIANTS.PILL) {
+            defaultVarients.roundness = variantsStyles.roundness.pill;
+        } else if (roundness === ROUNDNESS_VARIANTS.SQUARE) {
+            defaultVarients.roundness = variantsStyles.roundness.sqaure;
         } else {
-            defaultVarients.roundness = varients.roundness.medium;
+            defaultVarients.roundness = variantsStyles.roundness.medium;
         }
     }
 
-    if (varient) {
-        if (varient === BUTTON_VARIENTS.PRIMARY) {
-            defaultVarients.varient = varients.varient.primary;
-        } else if (varient === BUTTON_VARIENTS.SECONDARY) {
-            defaultVarients.varient = varients.varient.secondary;
-        } else if (varient === BUTTON_VARIENTS.OUTLINED) {
-            defaultVarients.varient = varients.varient.outline;
-        } else if (varient === BUTTON_VARIENTS.TEXT) {
-            defaultVarients.varient = varients.varient.text;
+    if (variant) {
+        if (variant === BUTTON_VARIANTS.PRIMARY) {
+            defaultVarients.variant = variantsStyles.variant.primary;
+        } else if (variant === BUTTON_VARIANTS.SECONDARY) {
+            defaultVarients.variant = variantsStyles.variant.secondary;
+        } else if (variant === BUTTON_VARIANTS.OUTLINED) {
+            defaultVarients.variant = variantsStyles.variant.outline;
+        } else if (variant === BUTTON_VARIANTS.TEXT) {
+            defaultVarients.variant = variantsStyles.variant.text;
         } else {
-            defaultVarients.varient = varients.varient.default;
+            defaultVarients.variant = variantsStyles.variant.default;
         }
     }
 
-    return `${baseStyles} ${defaultVarients.roundness} ${defaultVarients.varient}`;
+    return `${baseStyles} ${defaultVarients.roundness} ${defaultVarients.variant}`;
 }
 
-export default function Button({ children, roundness, varient, padding }: ButtonProps) {
-    return <button className={getButtonStyle({ roundness, varient, padding })}>{children}</button>;
+export default function Button({ children, roundness, variant }: ButtonProps) {
+    return <button className={getButtonStyle({ roundness, variant })}>{children}</button>;
 }

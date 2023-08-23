@@ -1,5 +1,5 @@
-import { BUTTON_ROUNDNESS } from "@/constants/button";
 import { ReactNode } from "react";
+import { ROUNDNESS_VARIANTS, INPUT_VARIANTS } from "@/constants/request-board";
 
 type InputProps = {
     label: string;
@@ -9,8 +9,8 @@ type InputProps = {
     icon?: ReactNode;
     disabled?: boolean;
     name?: string;
-    roundness?: string;
-    variant?: string;
+    roundness?: "pill" | "medium" | "square";
+    variant?: "outlined" | "filled";
     iconPosition?: "left" | "right";
     type: "text" | "number" | "email" | "password";
 };
@@ -40,9 +40,9 @@ function getInputStyle({ roundness, variant }: InputStylesProps) {
     };
 
     if (roundness) {
-        if (roundness === BUTTON_ROUNDNESS.PILL) {
+        if (roundness === ROUNDNESS_VARIANTS.PILL) {
             defaultVariants.roundness = variantsStyles.roundness.pill;
-        } else if (roundness === BUTTON_ROUNDNESS.SQUARE) {
+        } else if (roundness === ROUNDNESS_VARIANTS.SQUARE) {
             defaultVariants.roundness = variantsStyles.roundness.square;
         } else {
             defaultVariants.roundness = variantsStyles.roundness.medium;
@@ -50,7 +50,7 @@ function getInputStyle({ roundness, variant }: InputStylesProps) {
     }
 
     if (variant) {
-        if (variant === "filled") {
+        if (variant === INPUT_VARIANTS.FILLED) {
             defaultVariants.variant = variantsStyles.variant.filled;
         } else {
             defaultVariants.variant = variantsStyles.variant.outlined;

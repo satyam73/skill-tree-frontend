@@ -1,4 +1,4 @@
-import { COLOR_SCHEMES } from "@/constants/skills";
+import { COLOR_SCHEMES } from "@/constants/request-board";
 
 type SkillLabelProps = {
     title: string;
