@@ -9,9 +9,9 @@ type SkillLabelStylesProps = {
     colorScheme?: string;
 };
 
-function getSkillLableStyles({ colorScheme }: SkillLabelStylesProps) {
+export function getSkillLableStyles({ colorScheme }: SkillLabelStylesProps) {
     const baseStyles = "py-1.5 px-5 text-sm rounded-[50px] font-semibold w-max";
-    const varients = {
+    const variants = {
         colorScheme: {
             default: "bg-gray-100 text-black-dark",
             green: "text-[#15803D] bg-[#DCFCE7]",
@@ -21,18 +21,18 @@ function getSkillLableStyles({ colorScheme }: SkillLabelStylesProps) {
     };
 
     const defaultVarients = {
-        colorScheme: varients.colorScheme.default,
+        colorScheme: variants.colorScheme.default,
     };
 
     if (colorScheme) {
         if (colorScheme === COLOR_SCHEMES.GREEN) {
-            defaultVarients.colorScheme = varients.colorScheme.green;
+            defaultVarients.colorScheme = variants.colorScheme.green;
         } else if (colorScheme === COLOR_SCHEMES.BLUE) {
-            defaultVarients.colorScheme = varients.colorScheme.blue;
+            defaultVarients.colorScheme = variants.colorScheme.blue;
         } else if (colorScheme === COLOR_SCHEMES.YELLOW) {
-            defaultVarients.colorScheme = varients.colorScheme.yellow;
+            defaultVarients.colorScheme = variants.colorScheme.yellow;
         } else {
-            defaultVarients.colorScheme = varients.colorScheme.default;
+            defaultVarients.colorScheme = variants.colorScheme.default;
         }
     }
 
@@ -41,8 +41,8 @@ function getSkillLableStyles({ colorScheme }: SkillLabelStylesProps) {
 
 export default function SkillLabel({ title, colorScheme }: SkillLabelProps) {
     return (
-        <div className={getSkillLableStyles({ colorScheme })}>
-            <p>{title}</p>
+        <div data-testid="skill-label-styles" className={getSkillLableStyles({ colorScheme })}>
+            <p data-testid="skill-label-title">{title}</p>
         </div>
     );
 }
