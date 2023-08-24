@@ -15,11 +15,15 @@ export default function VotesDescription({ src, name, date, description }: Votes
             </div>
             <div className="text-base">
                 <div>
-                    <h3 className="font-semibold">{name}</h3>
-                    <p className="font-medium mt-1 text-xs text-gray-800">{date}</p>
+                    <h3 className="font-semibold" data-testid="voter-name">
+                        {name}
+                    </h3>
+                    <p className="font-medium mt-1 text-xs text-gray-800" data-testid="vote-date">
+                        {date}
+                    </p>
                 </div>
                 <div className="mt-2">
-                    <p>{description}</p>
+                    <p data-testid="vote-reason">{description}</p>
                 </div>
             </div>
         </div>
