@@ -15,7 +15,7 @@ function getButtonColors(color: string) {
         case "error":
             return "bg-red-100 border-2 border-solid border-red-300 text-red-600";
         default:
-            return `bg-[${color}]`;
+            return "";
     }
 }
 
