@@ -1,10 +1,9 @@
-import { ReactNode } from "react";
+import { ReactNode, ChangeEvent } from "react";
 import { ROUNDNESS_VARIANTS, INPUT_VARIANTS } from "@/constants/request-board";
 
 type InputProps = {
     label: string;
     value: string;
-    error?: boolean;
     placeholder?: string;
     icon?: ReactNode;
     disabled?: boolean;
@@ -13,6 +12,7 @@ type InputProps = {
     variant?: "outlined" | "filled";
     iconPosition?: "left" | "right";
     type: "text" | "number" | "email" | "password";
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 type InputStylesProps = {
@@ -65,22 +65,23 @@ export default function Input({
     label,
     name,
     value,
-    error = false,
     placeholder,
     disabled = false,
     icon,
     iconPosition,
     roundness,
     variant,
+    onChange,
 }: InputProps) {
     return (
         <div className={getInputStyle({ roundness, variant })}>
-            {iconPosition === "left" && icon}
+            {iconPosition === "left" && <span data-testid="input-icon-left">{icon}</span>}
             <div className="text-black-light font-medium">
-                <label htmlFor={label} className="sr-only">
+                <label data-testid="input-label" htmlFor={label} className="sr-only">
                     {label}
                 </label>
                 <input
+                    data-testid="input"
                     id={label}
                     type={type}
                     name={name}
@@ -88,10 +89,10 @@ export default function Input({
                     placeholder={placeholder}
                     disabled={disabled}
                     className="placeholder:text-black-light outline-none bg-transparent w-full"
+                    onChange={onChange}
                 />
             </div>
-            {iconPosition === "right" || !iconPosition ? icon : null}
-            {error && <p className="text-xs absolute error bottom-[-40%] text-red-dark">Required Field</p>}
+            {iconPosition === "right" || !iconPosition ? <span data-testid="input-icon-right">{icon}</span> : null}
         </div>
     );
 }
