@@ -22,7 +22,7 @@ const Drawer = ({ open, onClose, children }: DrawerProps) => {
                 ></div>
                 <div
                     role="drawer"
-                    className={`fixed right-0 top-0 pb-16 h-screen z-40 overflow-y-auto bg-white w-3/4 sm:w-1/2 lg:w-[490px]`}
+                    className={`fixed right-0 top-0 pb-16 h-screen z-40 overflow-y-auto bg-white w-3/4 sm:w-1/2 lg:w-1/3`}
                     tabIndex={-1}
                 >
                     {children}

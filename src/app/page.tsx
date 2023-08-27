@@ -12,7 +12,7 @@ export default function Home() {
 
     return (
         <main>
-            <header className="h-20 bg-blue"></header>
+            <header className="h-20 bg-blue-700"></header>
             <Button onClick={handleOpen}>Open Drawer</Button>
             <EndorsementDetailsSlideOver endorsementId="abc2" onClose={handleOpen} open={open} />
         </main>

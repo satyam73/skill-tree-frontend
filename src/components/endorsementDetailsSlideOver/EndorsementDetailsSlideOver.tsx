@@ -36,9 +36,11 @@ const EndorsementDetailsSlideOver = ({ endorsementId, open, onClose }: Endorseme
                 </ul>
             </div>
 
-            <div className="fixed bottom-0 right-0 w-3/4 sm:w-1/2 lg:w-[490px] flex justify-between py-4 px-6 bg-blue-100 border border-solid border-blue-300">
-                <Button icon={<IoCheckmarkSharp />}>Approve</Button>
-                <Button color="error" icon={<RxCross2 />}>
+            <div className="fixed bottom-0 right-0 w-3/4 sm:w-1/2 lg:w-1/3 flex justify-between gap-4 py-4 px-6 bg-blue-100 border border-solid border-blue-300">
+                <Button icon={<IoCheckmarkSharp />} block={true}>
+                    Approve
+                </Button>
+                <Button color="error" icon={<RxCross2 />} block={true}>
                     Reject
                 </Button>
             </div>

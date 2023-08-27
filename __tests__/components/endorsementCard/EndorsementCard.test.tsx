@@ -10,16 +10,18 @@ describe("EndorsementCard", () => {
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
     };
 
-    test("renders card with name and small description", () => {
+    test("renders card with name, small description and avatar", () => {
         const { getByText, getByRole, queryByText } = render(<EndorsementCard {...cardProps} />);
         const listElement = getByRole("listitem");
         const nameElement = getByText(cardProps.name);
+        const avatarElement = getByText(cardProps.name.charAt(0));
 
         const descriptionElement = getByText(/Lorem ipsum dolor sit amet consectetur adipisicing elit/i);
         const seeMoreElement = queryByText("...see more");
 
         expect(listElement).toBeInTheDocument();
         expect(nameElement).toBeInTheDocument();
+        expect(avatarElement).toBeInTheDocument();
         expect(descriptionElement).toBeInTheDocument();
         expect(seeMoreElement).not.toBeInTheDocument();
     });
