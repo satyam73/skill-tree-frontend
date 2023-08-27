@@ -30,8 +30,9 @@ module.exports = {
             yellow: {
                 dark: "#A16207",
                 light: "#FEF3C7",
+                100: "#FAF8F5",
             },
-            blue: "#1D4ED8",
+            blue: { 700: "#1D4ED8", 100: "#F8FAFC", 200: "#F1F5F9", 300: "#E2E8F0" },
         },
     },
     plugins: [],

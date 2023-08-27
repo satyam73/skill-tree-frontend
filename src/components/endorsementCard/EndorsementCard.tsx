@@ -17,7 +17,7 @@ const EndorsementCard = ({ name, description }: EndorsementCardProps) => {
         description.length > TRUNCATION_LENGTH ? (
             <button onClick={toggleDescription}>
                 {showFullDescription ? " " : "..."}
-                <span className="text-blue cursor-pointer">see {showFullDescription ? "less" : "more"}</span>
+                <span className="text-blue-700 cursor-pointer">see {showFullDescription ? "less" : "more"}</span>
             </button>
         ) : null;
 

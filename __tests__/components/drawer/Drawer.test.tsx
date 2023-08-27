@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import Drawer from "@/components/drawer/Drawer";
 
 describe("Drawer", () => {
@@ -19,5 +19,20 @@ describe("Drawer", () => {
 
         expect(drawer).not.toBeInTheDocument();
         expect(overlay).not.toBeInTheDocument();
+    });
+
+    test("handle onClose event", () => {
+        const handleClose = jest.fn();
+        const { queryByRole, getByRole } = render(<Drawer open={true} onClose={handleClose} />);
+        const drawer = queryByRole("drawer");
+        const overlay = getByRole("overlay");
+        const overlayQuery = queryByRole("overlay");
+
+        expect(drawer).toBeInTheDocument();
+        expect(overlay).toBeInTheDocument();
+
+        fireEvent.click(overlay);
+
+        expect(handleClose).toHaveBeenCalledTimes(1);
     });
 });
