@@ -1,5 +1,4 @@
 import { ReactNode, ChangeEvent } from "react";
-import { ROUNDNESS_VARIANTS, INPUT_VARIANTS } from "@/constants/request-board";
 
 type InputProps = {
     label: string;
@@ -16,11 +15,11 @@ type InputProps = {
 };
 
 type InputStylesProps = {
-    roundness?: string;
-    variant?: string;
+    roundness?: "pill" | "medium" | "square";
+    variant?: "filled" | "outlined";
 };
 
-function getInputStyle({ roundness, variant }: InputStylesProps) {
+function getInputStyle({ roundness = "pill", variant = "filled" }: InputStylesProps) {
     const baseStyles = "flex gap-4 py-3 px-5 w-max text-base items-center relative";
     const variantsStyles = {
         roundness: {
@@ -34,30 +33,10 @@ function getInputStyle({ roundness, variant }: InputStylesProps) {
         },
     };
 
-    const defaultVariants = {
-        roundness: variantsStyles.roundness.pill,
-        variant: variantsStyles.variant.outlined,
-    };
+    const roundnessClass = variantsStyles.roundness[roundness];
+    const variantClass = variantsStyles.variant[variant];
 
-    if (roundness) {
-        if (roundness === ROUNDNESS_VARIANTS.PILL) {
-            defaultVariants.roundness = variantsStyles.roundness.pill;
-        } else if (roundness === ROUNDNESS_VARIANTS.SQUARE) {
-            defaultVariants.roundness = variantsStyles.roundness.square;
-        } else {
-            defaultVariants.roundness = variantsStyles.roundness.medium;
-        }
-    }
-
-    if (variant) {
-        if (variant === INPUT_VARIANTS.FILLED) {
-            defaultVariants.variant = variantsStyles.variant.filled;
-        } else {
-            defaultVariants.variant = variantsStyles.variant.outlined;
-        }
-    }
-
-    return `${baseStyles} ${defaultVariants.roundness} ${defaultVariants.variant}`;
+    return `${baseStyles} ${roundnessClass} ${variantClass}`;
 }
 
 export default function Input({
@@ -68,7 +47,7 @@ export default function Input({
     placeholder,
     disabled = false,
     icon,
-    iconPosition,
+    iconPosition = "right",
     roundness,
     variant,
     onChange,
@@ -88,11 +67,11 @@ export default function Input({
                     value={value}
                     placeholder={placeholder}
                     disabled={disabled}
-                    className="placeholder:text-black-light outline-none bg-transparent w-full"
                     onChange={onChange}
+                    className="placeholder:text-black-light outline-none bg-transparent w-full"
                 />
             </div>
-            {iconPosition === "right" || !iconPosition ? <span data-testid="input-icon-right">{icon}</span> : null}
+            {iconPosition === "right" && <span data-testid="input-icon-right">{icon}</span>}
         </div>
     );
 }
