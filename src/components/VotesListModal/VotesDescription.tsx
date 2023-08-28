@@ -1,7 +1,7 @@
 import Avatar from "../Avatar/Avatar";
 
 type VotesTypes = {
-    src: string;
+    src?: string;
     name: string;
     date: string;
     description: string;
