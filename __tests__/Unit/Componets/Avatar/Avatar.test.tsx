@@ -4,7 +4,7 @@ import Avatar from "@/components/Avatar/Avatar";
 
 describe("Avatar Component", function () {
     it("Should render the image if src is provided", function () {
-        render(<Avatar src={dummyImg} name="Dummy" width={32} height={32} />);
+        render(<Avatar src={dummyImg} name="Dummy" />);
 
         expect(screen.getByTestId("avatar-img")).toHaveAttribute("src", dummyImg);
         expect(screen.getByTestId("avatar-img")).toHaveAttribute("alt", "Dummy");
@@ -13,7 +13,7 @@ describe("Avatar Component", function () {
     });
 
     it("Should render the name initials if src is false", function () {
-        render(<Avatar name="Manish" width={32} height={32} />);
+        render(<Avatar name="Manish" />);
 
         expect(screen.queryByTestId("avatar-img")).not.toBeInTheDocument();
         expect(screen.getByTestId("avatar-name-intials")).toHaveTextContent("M");
