@@ -1,24 +1,23 @@
 import { ReactNode } from "react";
-import { BUTTON_VARIANTS, ROUNDNESS_VARIANTS } from "@/constants/request-board";
 
 type ButtonProps = {
     children: ReactNode;
-    roundness?: string;
-    variant?: string;
+    roundness?: "pill" | "medium" | "square";
+    variant?: "primary" | "secondary" | "default" | "outline" | "text";
 };
 
 type ButtonStylesProps = {
-    roundness?: string;
-    variant?: string;
+    roundness?: "pill" | "medium" | "square";
+    variant?: "primary" | "secondary" | "default" | "outline" | "text";
 };
 
-function getButtonStyle({ roundness, variant }: ButtonStylesProps) {
+function getButtonStyle({ roundness = "pill", variant = "default" }: ButtonStylesProps) {
     const baseStyles = "px-4 lg:px-6 py-2 text-sm font-semibold flex items-center justify-center gap-4";
     const variantsStyles = {
         roundness: {
             medium: "rounded-lg",
             pill: "rounded-full",
-            sqaure: "rounded-none",
+            square: "rounded-none",
         },
         variant: {
             primary: "bg-blue text-white",
@@ -29,36 +28,10 @@ function getButtonStyle({ roundness, variant }: ButtonStylesProps) {
         },
     };
 
-    const defaultVarients = {
-        roundness: variantsStyles.roundness.medium,
-        variant: variantsStyles.variant.default,
-    };
+    const roundnessClass = variantsStyles.roundness[roundness];
+    const variantClass = variantsStyles.variant[variant];
 
-    if (roundness) {
-        if (roundness === ROUNDNESS_VARIANTS.PILL) {
-            defaultVarients.roundness = variantsStyles.roundness.pill;
-        } else if (roundness === ROUNDNESS_VARIANTS.SQUARE) {
-            defaultVarients.roundness = variantsStyles.roundness.sqaure;
-        } else {
-            defaultVarients.roundness = variantsStyles.roundness.medium;
-        }
-    }
-
-    if (variant) {
-        if (variant === BUTTON_VARIANTS.PRIMARY) {
-            defaultVarients.variant = variantsStyles.variant.primary;
-        } else if (variant === BUTTON_VARIANTS.SECONDARY) {
-            defaultVarients.variant = variantsStyles.variant.secondary;
-        } else if (variant === BUTTON_VARIANTS.OUTLINED) {
-            defaultVarients.variant = variantsStyles.variant.outline;
-        } else if (variant === BUTTON_VARIANTS.TEXT) {
-            defaultVarients.variant = variantsStyles.variant.text;
-        } else {
-            defaultVarients.variant = variantsStyles.variant.default;
-        }
-    }
-
-    return `${baseStyles} ${defaultVarients.roundness} ${defaultVarients.variant}`;
+    return `${baseStyles} ${roundnessClass} ${variantClass}`;
 }
 
 export default function Button({ children, roundness, variant }: ButtonProps) {
