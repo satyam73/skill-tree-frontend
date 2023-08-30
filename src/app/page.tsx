@@ -1,11 +1,15 @@
+"use client";
+
 import { IoFilterOutline } from "react-icons/io5";
 import { GrPrevious, GrNext } from "react-icons/gr";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Button from "@/components/Button/Button";
 import RequestBoardTable from "@/components/RequestBoardTable";
 
 export default function Home() {
+    const scrollDirection = useScrollDirection();
     return (
         <main className="my-20">
             <div className="lg:bg-white rounded-2xl lg:shadow-[0px_0px_6px_rgba(0,0,0,0.04)] w-full lg:w-11/12 max-w-screen-xl mx-auto lg:p-12">
@@ -27,8 +31,18 @@ export default function Home() {
                 <Wrapper>
                     <RequestBoardTable />
                 </Wrapper>
-                <Wrapper>
-                    <div className="mt-4 p-4 flex gap-4 justify-end">
+                <Wrapper
+                    styles={`${
+                        scrollDirection === "up"
+                            ? "sticky lg:static bottom-0 bg-[#f9fafb] lg:bg-transparent z-[100] shadow-[0_0_6px_rgba(0,0,0,0.1)] lg:shadow-none"
+                            : ""
+                    }`}
+                >
+                    <div
+                        className={`${
+                            scrollDirection === "down" ? "hidden lg:flex " : ""
+                        }mt-4 p-4 flex gap-4 justify-end`}
+                    >
                         <Button roundness="pill" variant="outline">
                             <GrPrevious />
                             <span>Prev</span>
