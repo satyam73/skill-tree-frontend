@@ -4,6 +4,7 @@ type ButtonProps = {
     children: ReactNode;
     roundness?: "pill" | "medium" | "square";
     variant?: "primary" | "secondary" | "default" | "outline" | "text";
+    onClick?: () => void;
 };
 
 type ButtonStylesProps = {
@@ -34,6 +35,10 @@ function getButtonStyle({ roundness = "pill", variant = "default" }: ButtonStyle
     return `${baseStyles} ${roundnessClass} ${variantClass}`;
 }
 
-export default function Button({ children, roundness, variant }: ButtonProps) {
-    return <button className={getButtonStyle({ roundness, variant })}>{children}</button>;
+export default function Button({ children, roundness, variant, onClick }: ButtonProps) {
+    return (
+        <button className={getButtonStyle({ roundness, variant })} onClick={onClick} data-testid="button">
+            {children}
+        </button>
+    );
 }
