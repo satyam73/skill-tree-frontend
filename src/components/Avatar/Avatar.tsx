@@ -3,35 +3,68 @@
 import Image from "next/image";
 
 type AvatarProps = {
-    src?: string;
     name: string;
-    width: number;
-    height: number;
+    src?: string;
+    size?: "lg" | "md" | "sm";
 };
 
-const avatarStyle = {
-    borderRadius: "50%",
+type getAvatarSizeTypes = {
+    size: "lg" | "md" | "sm";
 };
 
-export default function Avatar({ src, name, width, height }: AvatarProps) {
+function getAvatarSize({ size }: getAvatarSizeTypes) {
+    const sizeVariants = {
+        lg: {
+            width: 50,
+            height: 50,
+        },
+        md: {
+            width: 40,
+            height: 40,
+        },
+        sm: {
+            width: 32,
+            height: 32,
+        },
+    };
+
+    return sizeVariants[size];
+}
+
+function getAvatarInitialsStyles({ size }: getAvatarSizeTypes) {
+    const baseStyles =
+        "text-sm font-medium rounded-full bg-gray-100 flex items-center justify-center border border-gray-600";
+    const variantStyles = {
+        size: {
+            lg: "w-[50px] h-[50px]",
+            md: "w-[40px] h-[40px]",
+            sm: "w-[32px] h-[32px]",
+        },
+    };
+
+    const sizeClass = variantStyles.size[size];
+
+    return `${baseStyles} ${sizeClass}`;
+}
+
+export default function Avatar({ src, name, size = "sm" }: AvatarProps) {
+    const { width, height } = getAvatarSize({ size });
+    const initials = name.trim().charAt(0).toUpperCase();
+
     return (
-        <div className="rounded-full">
+        <div className="rounded-full w-max">
             {src ? (
                 <Image
                     src={src}
                     alt={name}
                     width={width}
                     height={height}
-                    style={avatarStyle}
+                    className="rounded-full"
                     data-testid="avatar-img"
                 />
             ) : (
-                <p
-                    data-testid="avatar-name-intials"
-                    className="text-sm font-medium rounded-full bg-gray-100 flex items-center justify-center border border-gray-600"
-                    style={{ height: `${height}px`, width: `${width}px` }}
-                >
-                    {name.charAt(0).toUpperCase()}
+                <p className={getAvatarInitialsStyles({ size })} data-testid="avatar-name-intials">
+                    {initials}
                 </p>
             )}
         </div>

@@ -11,7 +11,7 @@ export default function VotesDescription({ src, name, date, description }: Votes
     return (
         <div className="grid grid-cols-[auto_minmax(0,_1fr)] items-start gap-4 p-4 border-b border-gray-400">
             <div>
-                <Avatar name="Manish" src={src} width={40} height={40} />
+                <Avatar name={name} src={src} />
             </div>
             <div className="text-base">
                 <div>

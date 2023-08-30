@@ -18,7 +18,7 @@ export default function AvatarGroup({ votes }: AvatarGroupTypes) {
     return (
         <div className="avatar-group flex [&>div]:mr-[-0.5rem] [&>*:nth-child(1)]:z-30 [&>*:nth-child(2)]:z-20 [&>*:nth-child(3)]:z-10">
             {visibleAvatars.map((vote) => {
-                return <Avatar key={vote.name} name={vote.name} height={32} width={32} />;
+                return <Avatar key={vote.name} name={vote.name} />;
             })}
             <p
                 className={`flex justify-center items-center rounded-full w-[32px] h-[32px] text-xs ${

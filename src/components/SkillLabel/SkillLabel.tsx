@@ -1,15 +1,13 @@
-import { COLOR_SCHEMES } from "@/constants/request-board";
-
 type SkillLabelProps = {
     title: string;
-    colorScheme?: string;
+    colorScheme?: "default" | "green" | "blue" | "yellow";
 };
 
 type SkillLabelStylesProps = {
-    colorScheme?: string;
+    colorScheme?: "default" | "green" | "blue" | "yellow";
 };
 
-export function getSkillLableStyles({ colorScheme }: SkillLabelStylesProps) {
+export function getSkillLableStyles({ colorScheme = "default" }: SkillLabelStylesProps) {
     const baseStyles = "py-1.5 px-5 text-sm rounded-[50px] font-semibold w-max";
     const variants = {
         colorScheme: {
@@ -20,23 +18,9 @@ export function getSkillLableStyles({ colorScheme }: SkillLabelStylesProps) {
         },
     };
 
-    const defaultVarients = {
-        colorScheme: variants.colorScheme.default,
-    };
+    const colorSchemeClass = variants.colorScheme[colorScheme];
 
-    if (colorScheme) {
-        if (colorScheme === COLOR_SCHEMES.GREEN) {
-            defaultVarients.colorScheme = variants.colorScheme.green;
-        } else if (colorScheme === COLOR_SCHEMES.BLUE) {
-            defaultVarients.colorScheme = variants.colorScheme.blue;
-        } else if (colorScheme === COLOR_SCHEMES.YELLOW) {
-            defaultVarients.colorScheme = variants.colorScheme.yellow;
-        } else {
-            defaultVarients.colorScheme = variants.colorScheme.default;
-        }
-    }
-
-    return `${baseStyles} ${defaultVarients.colorScheme}`;
+    return `${baseStyles} ${colorSchemeClass}`;
 }
 
 export default function SkillLabel({ title, colorScheme }: SkillLabelProps) {
