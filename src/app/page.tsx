@@ -1,7 +1,7 @@
 "use client";
 
 import { IoFilterOutline } from "react-icons/io5";
-import { GrPrevious, GrNext } from "react-icons/gr";
+import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import SearchBox from "@/components/SearchBox/SearchBox";
@@ -44,12 +44,12 @@ export default function Home() {
                         }mt-4 p-4 flex gap-4 justify-end`}
                     >
                         <Button roundness="pill" variant="outline">
-                            <GrPrevious />
+                            <AiOutlineLeft />
                             <span>Prev</span>
                         </Button>
                         <Button roundness="pill" variant="secondary">
                             <span>Next</span>
-                            <GrNext />
+                            <AiOutlineRight />
                         </Button>
                     </div>
                 </Wrapper>
