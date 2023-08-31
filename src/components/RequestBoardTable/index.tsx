@@ -1,6 +1,7 @@
 import BoardCategoryRow from "./BoardCategoryRow";
-import { requestBoardData } from "../../../__mocks__/requestBoardData";
 import BoardDetailsRow from "./BoardDetailsRow";
+import { requestBoardData } from "../../../__mocks__/requestBoardData";
+import { SKILL_LABEL_COLOR_MAPPING } from "@/constants/request-board";
 
 export default function RequestBoardTable() {
     return (
@@ -9,8 +10,14 @@ export default function RequestBoardTable() {
                 <BoardCategoryRow />
             </div>
             <div className="mt-12 lg:mt-4 grid grid-cols-1 gap-8 lg:gap-0">
-                {requestBoardData.map((skillItem) => {
-                    return <BoardDetailsRow key={skillItem.id} {...skillItem} />;
+                {requestBoardData.map((skillItem, index) => {
+                    return (
+                        <BoardDetailsRow
+                            key={skillItem.id}
+                            {...skillItem}
+                            colorScheme={SKILL_LABEL_COLOR_MAPPING[index % 6]}
+                        />
+                    );
                 })}
             </div>
         </div>

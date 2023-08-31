@@ -16,10 +16,11 @@ type VotesTypes = {
 type BoardDetailsRowProps = {
     name: string;
     skill: string;
+    colorScheme: "green" | "yellow" | "blue";
     votes: VotesTypes[];
 };
 
-export default function BoardDetailsRow({ name, skill, votes }: BoardDetailsRowProps) {
+export default function BoardDetailsRow({ name, skill, votes, colorScheme }: BoardDetailsRowProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
@@ -30,7 +31,7 @@ export default function BoardDetailsRow({ name, skill, votes }: BoardDetailsRowP
                 </p>
             </div>
             <div className="ml-auto lg:m-0">
-                <SkillLabel title={skill} />
+                <SkillLabel title={skill} colorScheme={colorScheme} />
             </div>
             <div className="flex flex-col gap-8 lg:flex-row justify-between col-span-full lg:col-start-3">
                 <div className="flex gap-8">
