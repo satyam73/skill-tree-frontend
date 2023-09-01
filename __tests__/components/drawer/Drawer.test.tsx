@@ -26,7 +26,6 @@ describe("Drawer", () => {
         const { queryByRole, getByRole } = render(<Drawer open={true} onClose={handleClose} />);
         const drawer = queryByRole("drawer");
         const overlay = getByRole("overlay");
-        const overlayQuery = queryByRole("overlay");
 
         expect(drawer).toBeInTheDocument();
         expect(overlay).toBeInTheDocument();

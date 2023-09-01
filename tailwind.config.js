@@ -12,6 +12,7 @@ module.exports = {
             red: {
                 100: "#FEF2F2",
                 300: "#FCA5A5",
+                500: "#DC2626",
                 600: "#E13110",
             },
             transparent: "transparent",
@@ -27,6 +28,7 @@ module.exports = {
                 600: "#D9D9D9",
                 300: "#475569",
                 700: "#334155",
+                800: "#78716c",
             },
             yellow: {
                 dark: "#A16207",
@@ -34,16 +36,6 @@ module.exports = {
                 100: "#FAF8F5",
             },
             blue: { 700: "#1D4ED8", 100: "#F8FAFC", 200: "#F1F5F9", 300: "#E2E8F0" },
-            gray: {
-                100: "#F3F4F6",
-                400: "#e5e5e5",
-                600: "#D9D9D9",
-                800: "#78716c",
-            },
-            red: {
-                dark: "#DC2626",
-                light: "#FEF2F2",
-            },
         },
     },
     plugins: [],

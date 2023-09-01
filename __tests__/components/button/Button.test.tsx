@@ -18,7 +18,7 @@ describe("Button Component", () => {
 
     test("renders button with custom type, color, icon and textn width", () => {
         const { getByRole } = render(
-            <Button type="submit" color="error" icon={<IoCheckmarkSharp />} block={true}>
+            <Button variant="error" icon={<IoCheckmarkSharp />} block={true}>
                 {" "}
                 <span>custom</span>
             </Button>
@@ -29,7 +29,6 @@ describe("Button Component", () => {
         const icon = getByRole("icon");
         expect(icon).toBeInTheDocument();
         expect(button).toBeInTheDocument();
-        expect(button).toHaveAttribute("type", "submit");
         expect(button).toHaveClass("bg-red-100");
         expect(button).toHaveClass("w-full");
     });

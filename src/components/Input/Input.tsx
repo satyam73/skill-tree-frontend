@@ -29,7 +29,7 @@ function getInputStyle({ roundness = "pill", variant = "filled" }: InputStylesPr
         },
         variant: {
             filled: "bg-gray-100",
-            outlined: "border-2 border-gray-400 focus-within:border-blue",
+            outlined: "border-2 border-gray-400 focus-within:border-blue-700",
         },
     };
 
@@ -55,7 +55,7 @@ export default function Input({
     return (
         <div className={getInputStyle({ roundness, variant })}>
             {iconPosition === "left" && <span data-testid="input-icon-left">{icon}</span>}
-            <div className="text-black-light font-medium">
+            <div className="font-medium text-black-light">
                 <label data-testid="input-label" htmlFor={label} className="sr-only">
                     {label}
                 </label>
@@ -68,7 +68,7 @@ export default function Input({
                     placeholder={placeholder}
                     disabled={disabled}
                     onChange={onChange}
-                    className="placeholder:text-black-light outline-none bg-transparent w-full"
+                    className="w-full bg-transparent outline-none placeholder:text-black-light"
                 />
             </div>
             {iconPosition === "right" && <span data-testid="input-icon-right">{icon}</span>}
