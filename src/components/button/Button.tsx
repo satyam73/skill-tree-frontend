@@ -1,47 +1,39 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 type ButtonProps = {
-    icon?: ReactNode;
     children: ReactNode;
-    type?: "button" | "submit";
-    color?: "success" | "error";
-    onClick?: () => void;
-    block?: boolean;
+    roundness?: "pill" | "medium" | "square";
+    variant?: "primary" | "secondary" | "default" | "outline" | "text";
 };
 
-function getButtonColors(color: string) {
-    switch (color) {
-        case "success":
-            return "bg-green text-white";
-        case "error":
-            return "bg-red-100 border-2 border-solid border-red-300 text-red-600";
-        default:
-            return "";
-    }
-}
-
-function getButtonStyles(color: string, block: boolean) {
-    const defaultStyles = "p-4 rounded-md font-medium flex items-center gap-1 justify-center";
-    const buttonColor = getButtonColors(color);
-    const buttonWidth = block ? "w-full" : "";
-
-    return `${defaultStyles} ${buttonColor} ${buttonWidth}`;
-}
-
-const Button = ({
-    type = "button",
-    children,
-    color = "success",
-    block = false,
-    icon,
-    onClick = () => {},
-}: ButtonProps) => {
-    return (
-        <button type={type} className={getButtonStyles(color, block)} onClick={onClick}>
-            {icon ? <span role="icon"> {icon} </span> : null}
-            <span>{children}</span>
-        </button>
-    );
+type ButtonStylesProps = {
+    roundness?: "pill" | "medium" | "square";
+    variant?: "primary" | "secondary" | "default" | "outline" | "text";
 };
 
-export default Button;
+function getButtonStyle({ roundness = "pill", variant = "default" }: ButtonStylesProps) {
+    const baseStyles = "px-4 lg:px-6 py-2 text-sm font-semibold flex items-center justify-center gap-4";
+    const variantsStyles = {
+        roundness: {
+            medium: "rounded-lg",
+            pill: "rounded-full",
+            square: "rounded-none",
+        },
+        variant: {
+            primary: "bg-blue text-white",
+            secondary: "bg-black-dark text-white",
+            default: "bg-gray-100 text-black-light",
+            outline: "bg-transparent text-black-dark border",
+            text: "bg-gray-100 lg:bg-transparent text-black-light border-none hover:bg-gray-100 hover:text-red-dark transition",
+        },
+    };
+
+    const roundnessClass = variantsStyles.roundness[roundness];
+    const variantClass = variantsStyles.variant[variant];
+
+    return `${baseStyles} ${roundnessClass} ${variantClass}`;
+}
+
+export default function Button({ children, roundness, variant }: ButtonProps) {
+    return <button className={getButtonStyle({ roundness, variant })}>{children}</button>;
+}
