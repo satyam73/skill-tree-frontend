@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/button/Button";
+import Button from "@/components/Button/Button";
 import EndorsementDetailsSlideOver from "@/components/endorsementDetailsSlideOver/EndorsementDetailsSlideOver";
 import { useState } from "react";
 

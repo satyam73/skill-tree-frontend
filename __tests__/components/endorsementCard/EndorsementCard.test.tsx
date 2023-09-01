@@ -2,7 +2,6 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import EndorsementCard from "@/components/endorsementCard/EndorsementCard";
 import { TRUNCATION_LENGTH } from "@/constants/comman";
-import { stringToRegex } from "@/utils/stringToRegex";
 
 describe("EndorsementCard", () => {
     const cardProps = {
@@ -37,7 +36,7 @@ describe("EndorsementCard", () => {
         const listElement = getByRole("listitem");
         const nameElement = getByText(cardProps.name);
         const seeMoreElement = getByRole("button", { name: "... see more" });
-        const truncDescElement = getByText(stringToRegex(cardProps.description.slice(0, TRUNCATION_LENGTH)));
+        const truncDescElement = getByText(new RegExp(cardProps.description.slice(0, TRUNCATION_LENGTH)));
 
         expect(listElement).toBeInTheDocument();
         expect(nameElement).toBeInTheDocument();
@@ -47,7 +46,7 @@ describe("EndorsementCard", () => {
 
         fireEvent.click(seeMoreElement);
         const seeLessElement = getByRole("button", { name: "see less" });
-        const fullDescElement = getByText(stringToRegex(cardProps.description));
+        const fullDescElement = getByText(new RegExp(cardProps.description));
         expect(seeLessElement).toBeInTheDocument();
         expect(fullDescElement).toBeInTheDocument();
     });

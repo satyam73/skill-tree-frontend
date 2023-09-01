@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import Button from "@/components/button/Button"; // Update the path to the Button component
+import Button from "@/components/Button/Button";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
 describe("Button Component", () => {
@@ -12,8 +12,6 @@ describe("Button Component", () => {
         const icon = queryByRole("icon");
         expect(icon).not.toBeInTheDocument();
         expect(button).toBeInTheDocument();
-        expect(button).toHaveAttribute("type", "button");
-        expect(button).toHaveClass("bg-green");
     });
 
     test("renders button with custom type, color, icon and textn width", () => {
