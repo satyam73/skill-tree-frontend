@@ -16,6 +16,8 @@
         "test-watch": "jest --watch "
     },
     "dependencies": {
+        "@tanstack/react-query": "^4.33.0",
+        "@tanstack/react-query-devtools": "^4.33.0",
         "autoprefixer": "10.4.14",
         "next": "13.4.4",
         "postcss": "8.4.23",
