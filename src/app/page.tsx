@@ -3,13 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 import Button from "@/components/Button/Button";
 import EndorsementDetailsSlideOver from "@/components/endorsementDetailsSlideOver/EndorsementDetailsSlideOver";
 import { useState } from "react";
+import { useGetEndorsements } from "@/services/endorsements";
 
 export default function Home() {
-    const { data, isLoading } = useQuery({
-        queryKey: ["endorsements"],
-        queryFn: () => fetch("https://user1693641217292.requestly.dev/endorsements").then((res) => res.json()),
-    });
-    console.log(data);
+    const { data: endorsements, isLoading } = useGetEndorsements();
+    console.log(endorsements);
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
