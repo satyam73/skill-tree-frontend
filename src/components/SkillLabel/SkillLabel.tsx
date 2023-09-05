@@ -1,10 +1,10 @@
 type SkillLabelProps = {
     title: string;
-    colorScheme?: "default" | "green" | "blue" | "yellow";
+    colorScheme?: string;
 };
 
 type SkillLabelStylesProps = {
-    colorScheme?: "default" | "green" | "blue" | "yellow";
+    colorScheme?: string;
 };
 
 export function getSkillLableStyles({ colorScheme = "default" }: SkillLabelStylesProps) {
@@ -18,7 +18,8 @@ export function getSkillLableStyles({ colorScheme = "default" }: SkillLabelStyle
         },
     };
 
-    const colorSchemeClass = variants.colorScheme[colorScheme];
+    const colorSchemeClass =
+        variants.colorScheme[colorScheme as keyof typeof variants.colorScheme] || variants.colorScheme.default;
 
     return `${baseStyles} ${colorSchemeClass}`;
 }

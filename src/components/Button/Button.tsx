@@ -2,14 +2,14 @@ import { ReactNode } from "react";
 
 type ButtonProps = {
     children: ReactNode;
-    roundness?: "pill" | "medium" | "square";
-    variant?: "primary" | "secondary" | "default" | "outline" | "text";
+    roundness?: string;
+    variant?: string;
     onClick?: () => void;
 };
 
 type ButtonStylesProps = {
-    roundness?: "pill" | "medium" | "square";
-    variant?: "primary" | "secondary" | "default" | "outline" | "text";
+    roundness?: string;
+    variant?: string;
 };
 
 function getButtonStyle({ roundness = "pill", variant = "default" }: ButtonStylesProps) {
@@ -29,8 +29,10 @@ function getButtonStyle({ roundness = "pill", variant = "default" }: ButtonStyle
         },
     };
 
-    const roundnessClass = variantsStyles.roundness[roundness];
-    const variantClass = variantsStyles.variant[variant];
+    const roundnessClass =
+        variantsStyles.roundness[roundness as keyof typeof variantsStyles.roundness] || variantsStyles.roundness.pill;
+    const variantClass =
+        variantsStyles.variant[variant as keyof typeof variantsStyles.variant] || variantsStyles.variant.default;
 
     return `${baseStyles} ${roundnessClass} ${variantClass}`;
 }

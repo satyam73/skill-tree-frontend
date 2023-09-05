@@ -7,16 +7,16 @@ type InputProps = {
     icon?: ReactNode;
     disabled?: boolean;
     name?: string;
-    roundness?: "pill" | "medium" | "square";
-    variant?: "outlined" | "filled";
-    iconPosition?: "left" | "right";
+    roundness?: string;
+    variant?: string;
+    iconPosition?: string;
     type: "text" | "number" | "email" | "password";
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
 type InputStylesProps = {
-    roundness?: "pill" | "medium" | "square";
-    variant?: "filled" | "outlined";
+    roundness?: string;
+    variant?: string;
 };
 
 function getInputStyle({ roundness = "pill", variant = "filled" }: InputStylesProps) {
@@ -33,8 +33,10 @@ function getInputStyle({ roundness = "pill", variant = "filled" }: InputStylesPr
         },
     };
 
-    const roundnessClass = variantsStyles.roundness[roundness];
-    const variantClass = variantsStyles.variant[variant];
+    const roundnessClass =
+        variantsStyles.roundness[roundness as keyof typeof variantsStyles.roundness] || variantsStyles.roundness.pill;
+    const variantClass =
+        variantsStyles.variant[variant as keyof typeof variantsStyles.variant] || variantsStyles.variant.filled;
 
     return `${baseStyles} ${roundnessClass} ${variantClass}`;
 }

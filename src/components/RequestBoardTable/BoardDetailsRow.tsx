@@ -16,7 +16,7 @@ type VotesTypes = {
 type BoardDetailsRowProps = {
     name: string;
     skill: string;
-    colorScheme: "green" | "yellow" | "blue";
+    colorScheme: string;
     votes: VotesTypes[];
 };
 
