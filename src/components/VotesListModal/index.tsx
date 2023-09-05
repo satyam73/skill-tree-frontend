@@ -12,6 +12,20 @@ type VotesListModalTypes = {
     onClose: () => void;
 };
 
+function renderVotes(votes: VotesTypes[]) {
+    return votes.map((vote) => {
+        return (
+            <VotesDescription
+                key={vote.name}
+                src={vote.img}
+                name={vote.name}
+                date={vote.date}
+                description={vote.reason}
+            />
+        );
+    });
+}
+
 export default function VotesListModal({ votes, onClose }: VotesListModalTypes) {
     return (
         <div>
@@ -25,19 +39,7 @@ export default function VotesListModal({ votes, onClose }: VotesListModalTypes) 
                         {votes.length}
                     </p>
                 </div>
-                <div className="h-[250px] lg:h-[300px] overflow-y-auto">
-                    {votes.map((vote) => {
-                        return (
-                            <VotesDescription
-                                key={vote.name}
-                                src={vote.img}
-                                name={vote.name}
-                                date={vote.date}
-                                description={vote.reason}
-                            />
-                        );
-                    })}
-                </div>
+                <div className="h-[250px] lg:h-[300px] overflow-y-auto">{renderVotes(votes)}</div>
             </div>
         </div>
     );
