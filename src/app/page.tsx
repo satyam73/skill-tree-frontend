@@ -3,9 +3,9 @@
 import { IoFilterOutline } from "react-icons/io5";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
-import Wrapper from "@/components/Wrapper/Wrapper";
-import SearchBox from "@/components/SearchBox/SearchBox";
-import Button from "@/components/Button/Button";
+import Wrapper from "@/components/Wrapper";
+import SearchBox from "@/components/SearchBox";
+import Button from "@/components/Button";
 import RequestBoardTable from "@/components/RequestBoardTable";
 
 export default function Home() {

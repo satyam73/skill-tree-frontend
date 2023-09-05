@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { dummyImg } from "@/constants/image";
-import Avatar from "@/components/Avatar/Avatar";
+import Avatar from "@/components/Avatar";
 
 describe("Avatar Component", function () {
     it("Should render the image if src is provided", function () {

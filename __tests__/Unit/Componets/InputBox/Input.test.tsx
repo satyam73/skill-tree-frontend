@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { GrPrevious } from "react-icons/gr";
-import Input from "@/components/Input/Input";
+import Input from "@/components/Input";
 
 describe("Input Component", function () {
     it("should render correct details", function () {

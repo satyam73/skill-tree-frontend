@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import AvatarGroup from "@/components/AvatarGroup/AvatarGroup";
+import AvatarGroup from "@/components/AvatarGroup";
 
 describe("Avatar Component", function () {
     it("should not show the remaining avatars text", function () {

@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import AvatarGroup from "../AvatarGroup/AvatarGroup";
-import Button from "../Button/Button";
-import SkillLabel from "../SkillLabel/SkillLabel";
+import AvatarGroup from "../AvatarGroup";
+import Button from "../Button";
+import SkillLabel from "../SkillLabel";
 import VotesListModal from "../VotesListModal";
 
 type VotesTypes = {

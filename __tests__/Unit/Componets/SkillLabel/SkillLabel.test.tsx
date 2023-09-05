@@ -1,4 +1,4 @@
-import SkillLabel from "@/components/SkillLabel/SkillLabel";
+import SkillLabel from "@/components/SkillLabel";
 import { render, screen } from "@testing-library/react";
 
 describe("Skill Label Component", function () {
