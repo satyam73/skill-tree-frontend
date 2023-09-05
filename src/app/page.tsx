@@ -7,11 +7,23 @@ import Wrapper from "@/components/Wrapper";
 import SearchBox from "@/components/SearchBox";
 import Button from "@/components/Button";
 import RequestBoardTable from "@/components/RequestBoardTable";
+import EndorsementDetailsSlideOver from "@/components/endorsementDetailsSlideOver/EndorsementDetailsSlideOver";
+import { useState } from "react";
 
 export default function Home() {
     const scrollDirection = useScrollDirection();
+
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen((prev) => !prev);
+    };
+
     return (
         <main className="my-20">
+            <Button onClick={handleOpen}>Open Drawer</Button>
+            <EndorsementDetailsSlideOver endorsementId="abc2" onClose={handleOpen} open={open} />
+
             <div className="lg:bg-white rounded-2xl lg:shadow-[0px_0px_6px_rgba(0,0,0,0.04)] w-full lg:w-11/12 max-w-screen-xl mx-auto lg:p-12">
                 <Wrapper styles="lg:hidden">
                     <h1 className="text-2xl lg:text-4xl font-semibold mb-2">Request board</h1>
