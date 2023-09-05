@@ -5,6 +5,7 @@ describe("Skill Label Component", function () {
     it("should render the correct details", function () {
         render(<SkillLabel title="useState" />);
 
-        expect(screen.getByTestId("skill-label-title")).toHaveTextContent("useState");
+        const skillLabelTitleElement = screen.getByTestId("skill-label-title");
+        expect(skillLabelTitleElement).toHaveTextContent("useState");
     });
 });

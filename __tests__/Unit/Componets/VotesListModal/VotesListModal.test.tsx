@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import VotesListModal from "@/components/VotesListModal";
 
 describe("Votes Description Component", function () {
@@ -21,7 +21,33 @@ describe("Votes Description Component", function () {
 
         render(<VotesListModal votes={votes} onClose={mock} />);
 
-        expect(screen.getByTestId("votes-title")).toHaveTextContent("Member Votes:");
-        expect(screen.getByTestId("votes-length")).toHaveTextContent("2");
+        const votesModalTitleElement = screen.getByTestId("votes-title");
+        const votesLengthElement = screen.getByTestId("votes-length");
+        expect(votesModalTitleElement).toHaveTextContent("Member Votes:");
+        expect(votesLengthElement).toHaveTextContent("2");
+    });
+
+    it("should call the onclose method on clicking outside of modal", function () {
+        const mock = jest.fn();
+        const votes = [
+            {
+                name: "Prakash",
+                img: "",
+                date: "16/07/2022",
+                reason: "",
+            },
+            {
+                name: "Manish",
+                img: "",
+                date: "16/07/2022",
+                reason: "",
+            },
+        ];
+
+        render(<VotesListModal votes={votes} onClose={mock} />);
+
+        const outsideModalWrapperElement = screen.getByTestId("close-modal");
+        fireEvent.click(outsideModalWrapperElement);
+        expect(mock).toHaveBeenCalledTimes(1);
     });
 });

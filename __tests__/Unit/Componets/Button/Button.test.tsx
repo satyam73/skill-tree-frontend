@@ -10,10 +10,11 @@ describe("Button Test", function () {
             </Button>
         );
 
-        expect(screen.getByText("Click Me")).toHaveTextContent("Click Me");
+        const buttonElement = screen.getByText("Click Me");
+        expect(buttonElement).toHaveTextContent("Click Me");
     });
 
-    it("should call the button onclick if button got clikced", function () {
+    it("should call the button onclick if button got clicked", function () {
         const mock = jest.fn();
         render(
             <Button onClick={mock}>
@@ -21,7 +22,8 @@ describe("Button Test", function () {
             </Button>
         );
 
-        fireEvent.click(screen.getByTestId("button"));
+        const buttonElement = screen.getByTestId("button");
+        fireEvent.click(buttonElement);
         expect(mock).toHaveBeenCalledTimes(1);
     });
 });

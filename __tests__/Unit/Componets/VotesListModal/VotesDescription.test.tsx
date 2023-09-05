@@ -12,8 +12,11 @@ describe("Votes Description Component", function () {
 
         render(<VotesDescription {...votesDescriptionData} />);
 
-        expect(screen.getByTestId("voter-name")).toHaveTextContent("Manish");
-        expect(screen.getByTestId("vote-date")).toHaveTextContent("16/15/42");
-        expect(screen.getByTestId("vote-reason")).toHaveTextContent("This is the description");
+        const voterNameElement = screen.getByTestId("voter-name");
+        const voteDateElement = screen.getByTestId("vote-date");
+        const voteReasonElement = screen.getByTestId("vote-reason");
+        expect(voterNameElement).toHaveTextContent("Manish");
+        expect(voteDateElement).toHaveTextContent("16/15/42");
+        expect(voteReasonElement).toHaveTextContent("This is the description");
     });
 });

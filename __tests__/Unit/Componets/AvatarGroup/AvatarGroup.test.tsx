@@ -25,10 +25,11 @@ describe("Avatar Component", function () {
         ];
         render(<AvatarGroup votes={votes} />);
 
-        expect(screen.queryByTestId("remaining-avatars")).not.toBeInTheDocument();
+        const remainingAvatarElement = screen.queryByTestId("remaining-avatars");
+        expect(remainingAvatarElement).not.toBeInTheDocument();
     });
 
-    it("should show the remaing avatar text 1", function () {
+    it("should show the remaing avatar text as 1", function () {
         const votes = [
             {
                 name: "Prakash",
@@ -57,6 +58,7 @@ describe("Avatar Component", function () {
         ];
         render(<AvatarGroup votes={votes} />);
 
-        expect(screen.queryByTestId("remaining-avatars")).toHaveTextContent("1");
+        const remainingAvatarElement = screen.queryByTestId("remaining-avatars");
+        expect(remainingAvatarElement).toHaveTextContent("+1");
     });
 });

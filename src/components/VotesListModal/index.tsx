@@ -15,7 +15,7 @@ type VotesListModalTypes = {
 export default function VotesListModal({ votes, onClose }: VotesListModalTypes) {
     return (
         <div>
-            <div className="fixed w-full inset-0 z-50" onClick={onClose}></div>
+            <div className="fixed w-full inset-0 z-50" onClick={onClose} data-testid="close-modal"></div>
             <div className="rounded-md absolute h-max w-11/12 lg:w-[400px] mx-auto bg-[#fff] translate-y-4 drop-shadow-md z-50 lg:translate-x-[-30%] lg:translate-y-[5%]">
                 <div className="flex justify-between items-center rounded-t-md bg-[#F9FAFB] p-3 border-b border-gray-400 lg:p-4">
                     <h2 className="text-base font-bold lg:text-xl" data-testid="votes-title">
