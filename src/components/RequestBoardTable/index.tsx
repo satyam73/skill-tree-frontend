@@ -3,11 +3,9 @@ import BoardDetailsRow from "./BoardDetailsRow";
 import { requestBoardData } from "../../../__mocks__/requestBoardData";
 import { SKILL_LABEL_COLOR_MAPPING } from "@/constants/request-board";
 
-function renderBoardDetailsRow() {
-    return requestBoardData.map((skillItem, index) => {
-        return <BoardDetailsRow key={skillItem.id} {...skillItem} colorScheme={SKILL_LABEL_COLOR_MAPPING[index % 6]} />;
-    });
-}
+const renderBoardDetailsRow = requestBoardData.map((skillItem, index) => {
+    return <BoardDetailsRow key={skillItem.id} {...skillItem} colorScheme={SKILL_LABEL_COLOR_MAPPING[index % 6]} />;
+});
 
 export default function RequestBoardTable() {
     return (
@@ -15,7 +13,7 @@ export default function RequestBoardTable() {
             <div className="hidden lg:grid grid-cols-[35%_25%_minmax(0,_1fr)] p-4 mt-16 border-y border-gray-400">
                 <BoardCategoryRow />
             </div>
-            <div className="mt-12 lg:mt-4 grid grid-cols-1 gap-8 lg:gap-0">{renderBoardDetailsRow()}</div>
+            <div className="mt-12 lg:mt-4 grid grid-cols-1 gap-8 lg:gap-0">{renderBoardDetailsRow}</div>
         </div>
     );
 }

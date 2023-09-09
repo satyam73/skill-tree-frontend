@@ -12,8 +12,8 @@ type VotesListModalTypes = {
     onClose: () => void;
 };
 
-function renderVotes(votes: VotesTypes[]) {
-    return votes.map((vote) => {
+export default function VotesListModal({ votes, onClose }: VotesListModalTypes) {
+    const renderVotes = votes.map((vote) => {
         return (
             <VotesDescription
                 key={vote.name}
@@ -24,9 +24,7 @@ function renderVotes(votes: VotesTypes[]) {
             />
         );
     });
-}
 
-export default function VotesListModal({ votes, onClose }: VotesListModalTypes) {
     return (
         <div>
             <div className="fixed w-full inset-0 z-50" onClick={onClose} data-testid="close-modal"></div>
@@ -39,7 +37,7 @@ export default function VotesListModal({ votes, onClose }: VotesListModalTypes) 
                         {votes.length}
                     </p>
                 </div>
-                <div className="h-[250px] lg:h-[300px] overflow-y-auto">{renderVotes(votes)}</div>
+                <div className="h-[250px] lg:h-[300px] overflow-y-auto">{renderVotes}</div>
             </div>
         </div>
     );
