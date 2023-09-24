@@ -13,17 +13,9 @@ type VotesListModalTypes = {
 };
 
 export default function VotesListModal({ votes, onClose }: VotesListModalTypes) {
-    const renderVotes = votes.map((vote) => {
-        return (
-            <VotesDescription
-                key={vote.name}
-                src={vote.img}
-                name={vote.name}
-                date={vote.date}
-                description={vote.reason}
-            />
-        );
-    });
+    const renderVotes = votes.map((vote) => (
+        <VotesDescription key={vote.name} src={vote.img} name={vote.name} date={vote.date} description={vote.reason} />
+    ));
 
     return (
         <div>

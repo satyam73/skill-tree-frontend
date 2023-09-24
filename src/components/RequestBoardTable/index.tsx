@@ -3,9 +3,9 @@ import BoardDetailsRow from "./BoardDetailsRow";
 import { requestBoardData } from "../../../__mocks__/requestBoardData";
 import { SKILL_LABEL_COLOR_MAPPING } from "@/constants/request-board";
 
-const renderBoardDetailsRow = requestBoardData.map((skillItem, index) => {
-    return <BoardDetailsRow key={skillItem.id} {...skillItem} colorScheme={SKILL_LABEL_COLOR_MAPPING[index % 6]} />;
-});
+const renderBoardDetailsRow = requestBoardData.map((skillItem, index) => (
+    <BoardDetailsRow key={skillItem.id} {...skillItem} colorScheme={SKILL_LABEL_COLOR_MAPPING[index % 6]} />
+));
 
 export default function RequestBoardTable() {
     return (
