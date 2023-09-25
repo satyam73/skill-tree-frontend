@@ -5,11 +5,11 @@ import Image from "next/image";
 type AvatarProps = {
     name: string;
     src?: string;
-    size?: "lg" | "md" | "sm";
+    size?: string;
 };
 
 type getAvatarSizeTypes = {
-    size: "lg" | "md" | "sm";
+    size: string;
 };
 
 function getAvatarSize({ size }: getAvatarSizeTypes) {
@@ -28,7 +28,7 @@ function getAvatarSize({ size }: getAvatarSizeTypes) {
         },
     };
 
-    return sizeVariants[size];
+    return sizeVariants[size as keyof typeof sizeVariants] || sizeVariants.md;
 }
 
 function getAvatarInitialsStyles({ size }: getAvatarSizeTypes) {
@@ -42,7 +42,7 @@ function getAvatarInitialsStyles({ size }: getAvatarSizeTypes) {
         },
     };
 
-    const sizeClass = variantStyles.size[size];
+    const sizeClass = variantStyles.size[size as keyof typeof variantStyles.size] || variantStyles.size.md;
 
     return `${baseStyles} ${sizeClass}`;
 }

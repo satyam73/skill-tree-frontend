@@ -3,9 +3,9 @@ import Drawer from "../drawer/Drawer";
 import Tag from "../tag/Tag";
 import { RxCross2 } from "react-icons/rx";
 import { IoCheckmarkSharp } from "react-icons/io5";
-import Button from "../Button/Button";
 import endorsementDetails from "../../../__mocks__/endorsementDetails.json";
 import EndorsementCard from "../endorsementCard/EndorsementCard";
+import Button from "@/components/Button";
 
 type EndorsementDetailsSlideOverProps = {
     endorsementId: string;
@@ -36,11 +36,13 @@ const EndorsementDetailsSlideOver = ({ endorsementId, open, onClose }: Endorseme
                 </ul>
             </div>
 
-            <div className="fixed bottom-0 right-0 flex justify-between w-3/4 gap-4 px-6 py-4 bg-blue-100 border border-blue-300 border-solid sm:w-1/2 lg:w-1/3">
-                <Button icon={<IoCheckmarkSharp />} block={true} variant="success" roundness="medium">
+            <div className="fixed bottom-0 right-0 grid grid-cols-2 justify-between w-3/4 gap-4 px-6 py-4 bg-blue-100 border border-blue-300 border-solid sm:w-1/2 lg:w-1/3">
+                <Button variant="success" roundness="medium">
+                    <IoCheckmarkSharp />
                     Approve
                 </Button>
-                <Button icon={<RxCross2 />} block={true} variant="error" roundness="medium">
+                <Button variant="error" roundness="medium">
+                    <RxCross2 />
                     Reject
                 </Button>
             </div>

@@ -2,20 +2,18 @@ import { ReactNode } from "react";
 
 type ButtonProps = {
     children: ReactNode;
-    roundness?: "pill" | "large" | "medium" | "square";
-    variant?: "primary" | "secondary" | "default" | "outline" | "text" | "success" | "error";
+    roundness?: string;
+    variant?: string;
     onClick?: () => void;
-    icon?: ReactNode;
-    block?: boolean;
 };
 
 type ButtonStylesProps = {
-    roundness?: "pill" | "large" | "medium" | "square";
-    variant?: "primary" | "secondary" | "default" | "outline" | "text" | "success" | "error";
+    roundness?: string;
+    variant?: string;
     block?: boolean;
 };
 
-function getButtonStyle({ roundness = "pill", variant = "default", block = false }: ButtonStylesProps) {
+function getButtonStyle({ roundness = "pill", variant = "default" }: ButtonStylesProps) {
     const baseStyles = "px-4 lg:px-6 py-2 text-sm font-semibold flex items-center justify-center gap-2";
     const variantsStyles = {
         roundness: {
@@ -25,7 +23,7 @@ function getButtonStyle({ roundness = "pill", variant = "default", block = false
             square: "rounded-none",
         },
         variant: {
-            primary: "bg-blue text-white",
+            primary: "bg-[#2563EB] text-white",
             secondary: "bg-black-dark text-white",
             success: "bg-green text-white",
             error: "bg-red-100 border-2 border-solid border-red-300 text-red-600",
@@ -35,17 +33,17 @@ function getButtonStyle({ roundness = "pill", variant = "default", block = false
         },
     };
 
-    const roundnessClass = variantsStyles.roundness[roundness];
-    const variantClass = variantsStyles.variant[variant];
-    const buttonWidth = block ? "w-full" : "";
+    const roundnessClass =
+        variantsStyles.roundness[roundness as keyof typeof variantsStyles.roundness] || variantsStyles.roundness.pill;
+    const variantClass =
+        variantsStyles.variant[variant as keyof typeof variantsStyles.variant] || variantsStyles.variant.default;
 
-    return `${baseStyles} ${roundnessClass} ${variantClass} ${buttonWidth}`;
+    return `${baseStyles} ${roundnessClass} ${variantClass}`;
 }
 
-export default function Button({ children, roundness, variant, block, icon, onClick }: ButtonProps) {
+export default function Button({ children, roundness, variant, onClick }: ButtonProps) {
     return (
-        <button className={getButtonStyle({ roundness, variant, block })} onClick={onClick}>
-            {icon ? <span role="icon"> {icon} </span> : null}
+        <button className={getButtonStyle({ roundness, variant })} onClick={onClick} data-testid="button">
             {children}
         </button>
     );

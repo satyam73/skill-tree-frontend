@@ -29,4 +29,15 @@ const COLOR_SCHEMES = {
     YELLOW: "yellow",
 };
 
-export { REQUEST_BOARD_TABLE_CATEGORIES, COLOR_SCHEMES, ROUNDNESS_VARIANTS, BUTTON_VARIANTS, INPUT_VARIANTS };
+type SkillLabelColor = "green" | "yellow" | "blue";
+
+const SKILL_LABEL_COLOR_MAPPING: SkillLabelColor[] = ["green", "blue", "blue", "yellow", "green", "blue"];
+
+export {
+    REQUEST_BOARD_TABLE_CATEGORIES,
+    COLOR_SCHEMES,
+    ROUNDNESS_VARIANTS,
+    BUTTON_VARIANTS,
+    INPUT_VARIANTS,
+    SKILL_LABEL_COLOR_MAPPING,
+};
