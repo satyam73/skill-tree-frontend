@@ -3,7 +3,7 @@ import Drawer from "../drawer/Drawer";
 import Tag from "../tag/Tag";
 import { RxCross2 } from "react-icons/rx";
 import { IoCheckmarkSharp } from "react-icons/io5";
-import endorsementDetails from "../../../__mocks__/endorsementDetails.json";
+import endorsementDetails from "../../../__mocks__/db/endorsementDetails.json";
 import EndorsementCard from "../endorsementCard/EndorsementCard";
 import Button from "@/components/Button";
 
