@@ -9,5 +9,5 @@ export const useGetEndorsements = () =>
 export const usePostEndorsement = ({ endorsementData }) =>
     useMutation({
         mutationKey: ["endorsements"],
-        mutationFn: () => fetch(`${BASE_URL.dev}/endorsement`, endorsementData).then((res) => res.json()),
+        mutationFn: () => fetch(`${BASE_URL.dev}/endorsements`, endorsementData).then((res) => res.json()),
     });

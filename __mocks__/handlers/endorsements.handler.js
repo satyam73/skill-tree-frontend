@@ -1,5 +1,5 @@
 import { rest } from "msw";
-
+import { BASE_URL } from "@/constants/urls";
 import endorsementDetails from "../db/endorsementDetails.json";
 
 export const endorsementsHandler = [
