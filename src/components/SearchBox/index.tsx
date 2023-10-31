@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import Input from "../Input/Input";
+import Input from "../Input";
 
 export default function SearchBox() {
     const [searchQuery, setSearchQuery] = useState("");

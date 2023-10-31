@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { GrPrevious } from "react-icons/gr";
-import Input from "@/components/Input/Input";
+import Input from "@/components/Input";
 
 describe("Input Component", function () {
     it("should render correct details", function () {
@@ -17,11 +17,14 @@ describe("Input Component", function () {
             />
         );
 
-        expect(screen.getByTestId("input-label")).toHaveTextContent("Full Name");
-        expect(screen.getByTestId("input")).toHaveAttribute("type", "text");
-        expect(screen.getByTestId("input")).toHaveAttribute("value", "Manish Devrani");
-        expect(screen.getByTestId("input")).toHaveAttribute("placeholder", "Enter full name");
-        expect(screen.getByTestId("input-icon-right")).toBeInTheDocument();
+        const inputLabelElement = screen.getByTestId("input-label");
+        const inputElement = screen.getByTestId("input");
+        const inputIconElement = screen.getByTestId("input-icon-right");
+        expect(inputLabelElement).toHaveTextContent("Full Name");
+        expect(inputElement).toHaveAttribute("type", "text");
+        expect(inputElement).toHaveAttribute("value", "Manish Devrani");
+        expect(inputElement).toHaveAttribute("placeholder", "Enter full name");
+        expect(inputIconElement).toBeInTheDocument();
     });
 
     it("should render icon on the left side", function () {
@@ -38,8 +41,10 @@ describe("Input Component", function () {
             />
         );
 
-        expect(screen.queryByTestId("input-icon-right")).not.toBeInTheDocument();
-        expect(screen.getByTestId("input-icon-left")).toBeInTheDocument();
+        const inputLeftIcon = screen.getByTestId("input-icon-left");
+        const inputRightIcon = screen.queryByTestId("input-icon-right");
+        expect(inputRightIcon).not.toBeInTheDocument();
+        expect(inputLeftIcon).toBeInTheDocument();
     });
 
     it("should render icon on the right side", function () {
@@ -56,8 +61,10 @@ describe("Input Component", function () {
             />
         );
 
-        expect(screen.queryByTestId("input-icon-left")).not.toBeInTheDocument();
-        expect(screen.getByTestId("input-icon-right")).toBeInTheDocument();
+        const inputLeftIcon = screen.queryByTestId("input-icon-left");
+        const inputRightIcon = screen.queryByTestId("input-icon-right");
+        expect(inputLeftIcon).not.toBeInTheDocument();
+        expect(inputRightIcon).toBeInTheDocument();
     });
 
     it("calls the input onChange handler when input value changes", function () {

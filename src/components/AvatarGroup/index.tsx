@@ -1,4 +1,4 @@
-import Avatar from "../Avatar/Avatar";
+import Avatar from "../Avatar";
 
 type VotesTypes = {
     img?: string;
@@ -25,7 +25,7 @@ export default function AvatarGroup({ votes }: AvatarGroupTypes) {
                     remainingAvatars.length > 0 && "border border-gray-400 hover:bg-gray-100 transition cursor-pointer"
                 }`}
             >
-                {remainingAvatars.length > 0 && `+${remainingAvatars.length}`}
+                {remainingAvatars.length > 0 && <span data-testid="remaining-avatars">+{remainingAvatars.length}</span>}
             </p>
         </div>
     );
