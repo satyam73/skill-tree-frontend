@@ -7,7 +7,7 @@ describe("Endorsements", () => {
         const upvoteButton = screen.getByText("Upvote");
         const downvoteButton = screen.getByText("Downvote");
         const CompleteEndorsementButton = screen.getByText("Complete Endorsement");
-        screen.debug();
+
         expect(screen.getByText("Endorsements")).toBeInTheDocument();
         expect(screen.getByText("search")).toBeInTheDocument();
         expect(screen.getByTestId("input")).toBeInTheDocument();
