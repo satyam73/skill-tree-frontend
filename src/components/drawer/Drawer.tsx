@@ -19,6 +19,7 @@ const Drawer = ({ open, onClose, children }: DrawerProps) => {
             tabIndex={-1}
         >
             <button
+            data-testid="close-button"
                 className="fixed p-2 text-3xl text-gray-700 bg-blue-200 cursor-pointer top-4 right-6"
                 onClick={onClose}
             >
