@@ -14,7 +14,7 @@ const Drawer = ({ open, onClose, children }: DrawerProps) => {
             role="drawer"
             className={classNames(
                 "fixed right-0 top-0 h-screen overflow-y-auto bg-white w-full sm:w-1/2 lg:w-1/3 z-[300] translate-x-full ease-in-out duration-500 transition-transform",
-                { "translate-x-0": open }
+                { "!translate-x-0": open }
             )}
             tabIndex={-1}
         >
