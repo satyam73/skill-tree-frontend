@@ -9,7 +9,7 @@ import Button from "@/components/Button";
 
 type EndorsementDetailsSlideOverProps = {
     endorsementId: string;
-    open: boolean;
+    open: Boolean;
     onClose: () => void;
 };
 

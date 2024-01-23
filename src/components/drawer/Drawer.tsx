@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import classNames from "classnames";
 type DrawerProps = {
-    open: boolean;
+    open: Boolean;
     onClose: () => void;
     children?: ReactNode;
 };
