@@ -1,9 +1,10 @@
-import React, { useState } from "react";
 import Image from "next/image";
-import { NAVBAR_LINKS } from "./navbar.constants";
-import { NavbarLink } from "./navbar.types";
-import { IoLogoGithub } from "react-icons/io5";
+import React, { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoLogoGithub } from "react-icons/io5";
+
+import { NAVBAR_LINKS, SIGNIN_URL } from "./navbar.constants";
+import { NavbarLink } from "./navbar.types";
 
 function Navbar() {
     const [isNavbarLinksVisible, setIsNavbarLinksVisible] = useState<boolean>(false);
@@ -11,6 +12,7 @@ function Navbar() {
     function toggleNavbarLinksVisibility() {
         setIsNavbarLinksVisible((prevState) => !prevState);
     }
+
     const navbarItemsMapping = NAVBAR_LINKS.map((item: NavbarLink) => (
         <li
             key={item.id}
@@ -32,7 +34,7 @@ function Navbar() {
                 <nav className="navbar__desktop max-lg:hidden visible">
                     <ul className="flex gap-10 items-center max-lg:flex-col">{navbarItemsMapping}</ul>
                 </nav>
-                <a data-testid="signin-button" className="ml-auto decoration-none" href={"login url will come here"}>
+                <a data-testid="signin-button" className="ml-auto decoration-none" href={SIGNIN_URL}>
                     <span className="flex gap-2 items-center text-base max-sm:text-sm max-sm:font-bold font-semibold w-fit border text-white rounded-md py-2 p-2 ">
                         <span>Sign in with Github</span>
                         <IoLogoGithub size={25} />

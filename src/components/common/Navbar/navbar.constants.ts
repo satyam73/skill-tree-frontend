@@ -1,4 +1,8 @@
+import { RDS_BACKEND_URL } from "@/constants/urls";
 import { NavbarLink } from "./navbar.types";
+
+// ?v2=true so that we get rds-session-v2 cookie from RDS backend
+export const SIGNIN_URL = `${RDS_BACKEND_URL}/auth/github/login?redirectURL=${process.env.NEXT_PUBLIC_SKILL_TREE_SITE}?v2=true`;
 
 export const NAVBAR_LINKS: NavbarLink[] = [
     {
