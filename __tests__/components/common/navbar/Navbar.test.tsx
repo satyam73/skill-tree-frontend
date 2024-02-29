@@ -1,15 +1,14 @@
 import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { NavbarLink } from "@/components/common/Navbar/Navbar.types";
-import { NAVBAR_LINKS } from "@/components/common/Navbar/Navbar.constants";
+import { NavbarLink } from "@/components/common/Navbar/navbar.types";
+import { NAVBAR_LINKS, SIGNIN_URL } from "@/components/common/Navbar/navbar.constants";
 
 import Navbar from "@/components/common/Navbar/Navbar";
 
 describe("Navbar Component", () => {
     it("should render the Navbar", () => {
         render(<Navbar />);
-
         const nav = screen.getByRole("banner");
 
         expect(nav).toBeInTheDocument();
@@ -26,7 +25,7 @@ describe("Navbar Component", () => {
 
         expect(signInText).toBeInTheDocument();
         expect(signinButton).toBeInTheDocument();
-        expect(signinButton).toHaveAttribute("href", "login url will come here");
+        expect(signinButton).toHaveAttribute("href", SIGNIN_URL);
     });
 
     it("should render the mobile navbar when hamburger button is clicked", () => {

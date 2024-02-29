@@ -35,7 +35,7 @@ function Navbar() {
                     <ul className="flex gap-10 items-center max-lg:flex-col">{navbarItemsMapping}</ul>
                 </nav>
                 <a data-testid="signin-button" className="ml-auto decoration-none" href={SIGNIN_URL}>
-                    <span className="flex gap-2 items-center text-base max-sm:text-sm max-sm:font-bold font-semibold w-fit border text-white rounded-md py-2 p-2 ">
+                    <span className="flex gap-2 items-center text-base max-sm:text-sm max-sm:font-bold font-semibold w-fit border text-white rounded-md py-2 p-2">
                         <span>Sign in with Github</span>
                         <IoLogoGithub size={25} />
                     </span>
