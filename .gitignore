@@ -23,6 +23,9 @@ lib-cov
 coverage
 *.lcov
 
+#VS code
+.vscode/
+
 # nyc test coverage
 .nyc_output
 
@@ -73,7 +76,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
+# .env
 .env.development.local
 .env.test.local
 .env.production.local
@@ -128,3 +131,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.yarnrc.yml
